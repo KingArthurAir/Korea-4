@@ -1,83 +1,263 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>복熙</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Noto Sans KR', system-ui, -apple-system, sans-serif; }
-    @keyframes fadeSlideIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in { animation: fadeSlideIn 0.6s ease-out forwards; opacity: 0; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="밤의 만남 - 고급 데이트 커뮤니티">
+    <meta name="theme-color" content="#0a0610">
+    <title>극한의 욕망 · 밤의 만남</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 主样式表 -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="min-h-screen w-full relative flex items-center justify-center p-4">
-    <!-- Full-screen background - matching original pink/coral gradient style -->
-    <div 
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('https://images.unsplash.com/photo-1516642499337-c07c80fc7264?w=1920&q=80')"
-    ></div>
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/30"></div>
+    <!-- 飘心容器 -->
+    <div id="hearts-container"></div>
+    
+    <!-- 页面容器 -->
+    <div class="page-wrapper">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ff477e"/>
+                    </svg>
+                    <span>LoveMe</span>
+                </a>
+                <button class="btn-header">지금 만남 시작</button>
+            </div>
+        </header>
 
-    <!-- Glassmorphism card -->
-    <div class="relative z-10 w-[90%] max-w-[450px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 flex flex-col items-center">
-      <!-- Avatar - matching the original -->
-      <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white/30 mb-5 shadow-lg">
-        <img 
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" 
-          alt="복熙"
-          class="w-full h-full object-cover"
-        >
-      </div>
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- Hero 区域 -->
+            <section class="hero-section">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        극한의 욕망 ·<br>
+                        밤의 만남
+                    </h1>
+                    <p class="hero-subtitle">
+                        오늘 밤 만남｜실제 인물｜점점 더 설레는 즉시 매칭
+                    </p>
+                    
+                    <!-- 特性标签 -->
+                    <div class="feature-tags">
+                        <span class="tag">18+ 성인 데이트</span>
+                        <span class="tag">실제 만남 보장</span>
+                        <span class="tag">익명 비밀보장</span>
+                    </div>
 
-      <!-- ID Name - Korean characters -->
-      <h1 class="text-2xl font-bold text-white mb-2 tracking-wide">복熙</h1>
+                    <!-- 筛选区域 -->
+                    <div class="filter-section">
+                        <!-- 年龄偏好 -->
+                        <div class="filter-group">
+                            <div class="filter-label">
+                                <span class="icon">🎂</span>
+                                <span>나이 선호</span>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="age" data-value="all">전체</button>
+                                <button class="filter-btn" data-filter="age" data-value="18-25">18-25 세</button>
+                                <button class="filter-btn" data-filter="age" data-value="26-35">26-35 세</button>
+                                <button class="filter-btn" data-filter="age" data-value="35+">35 세 이상</button>
+                            </div>
+                        </div>
 
-      <!-- Bio in Korean -->
-      <p class="text-white/80 text-center mb-8 text-sm leading-relaxed max-w-[320px]">
-        도움이 필요하신가요?<br>
-        제가 도와드릴게요 ✨
-      </p>
+                        <!-- 幻想类型 -->
+                        <div class="filter-group">
+                            <div class="filter-label">
+                                <span class="icon">✨</span>
+                                <span>판타지 유형</span>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="fantasy" data-value="all">전체</button>
+                                <button class="filter-btn" data-filter="fantasy" data-value="sweet">청순 &amp; 섹시</button>
+                                <button class="filter-btn" data-filter="fantasy" data-value="sensual">관능적인 여성</button>
+                                <button class="filter-btn" data-filter="fantasy" data-value="innocent">순진한 여신</button>
+                                <button class="filter-btn" data-filter="fantasy" data-value="mature">성숙한 여성 / 인妻</button>
+                            </div>
+                        </div>
 
-      <!-- Links -->
-      <div class="w-full space-y-3">
-        <a href="https://instagram.com" target="_blank" class="fade-in delay-1 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-pink-500/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          <span>Instagram</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-        </a>
-        
-        <a href="https://x.com" target="_blank" class="fade-in delay-2 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-black/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span>X</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-        </a>
-        
-        <a href="https://github.com" target="_blank" class="fade-in delay-3 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-gray-800/90 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          <span>GitHub</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-        </a>
-        
-        <a href="mailto:hello@love-me.xyz" class="fade-in delay-4 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-red-500/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <span>Mail</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-        </a>
-      </div>
+                        <!-- 身材类型 -->
+                        <div class="filter-group">
+                            <div class="filter-label">
+                                <span class="icon">💪</span>
+                                <span>체형 유형</span>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="body" data-value="all">전체</button>
+                                <button class="filter-btn" data-filter="body" data-value="slim">마른 체형</button>
+                                <button class="filter-btn" data-filter="body" data-value="curvy">볼륨감 있는 체형</button>
+                                <button class="filter-btn" data-filter="body" data-value="athletic">운동형 체형</button>
+                            </div>
+                        </div>
+                    </div>
 
-      <p class="mt-8 text-white/50 text-xs">© 2026 복熙. All rights reserved.</p>
+                    <!-- CTA 按钮 -->
+                    <button class="btn-cta">
+                        <span class="btn-icon">📱</span>
+                        지금 데이트 앱 다운로드
+                    </button>
+
+                    <p class="cta-description">
+                        선호도를 선택하면 이상적인 파트너를 자동으로 매칭해 드립니다.
+                        오늘 밤 만남을 가질 수 있습니다.
+                    </p>
+                </div>
+
+                <!-- 右侧照片展示 -->
+                <div class="hero-right">
+                    <div class="photo-showcase">
+                        <div class="photo-card featured">
+                            <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20sitting%20bedroom%20sensual%20portrait%20soft%20lighting%20pigtails%20white%20lace?width=400&height=500&nologo=true" alt="Profile photo">
+                            <div class="photo-info">
+                                <span class="name">민지</span>
+                                <span class="info">22 · 서울</span>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20long%20black%20hair?width=300&height=400&nologo=true" alt="Profile photo">
+                            <div class="photo-info">
+                                <span class="name">수진</span>
+                                <span class="info">21 · 서울</span>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20sexy%20pose?width=300&height=400&nologo=true" alt="Profile photo">
+                            <div class="photo-info">
+                                <span class="name">지영</span>
+                                <span class="info">23 · 부산</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 照片画廊区域 -->
+            <section class="gallery-section">
+                <div class="section-header">
+                    <h2 class="section-title">실제 인물 · 생생한 프로필</h2>
+                    <p class="section-subtitle">
+                        👉 좌우로 스와이프하여 더 많은 프로필을 확인하세요.
+                        만남을 가진 모든 분들이 훌륭했다고 말합니다.
+                    </p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20pigtails?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">22</span>
+                            <span class="location">서울</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20long%20hair?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">21</span>
+                            <span class="location">서울</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20sexy?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">23</span>
+                            <span class="location">부산</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20young?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">20</span>
+                            <span class="location">제주</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20mature?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">24</span>
+                            <span class="location">서울</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://image.pollinations.ai/prompt/korean%20woman%20lingerie%20bedroom%20sensual%20portrait%20soft%20lighting%20cute?width=400&height=500&nologo=true" alt="Profile">
+                        <div class="gallery-info">
+                            <span class="age">21</span>
+                            <span class="location">인천</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 特性介绍区域 -->
+            <section class="features-section">
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>남성을 위한 궁극의 낙원</h3>
+                    <p>당신의 판타지를 100% 이해합니다. 불필요한 대화 없이 바로 만남. 오늘 밤 당신이 결정합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>완전한 익명 비밀보장</h3>
+                    <p>양측 모두 익명이며 안전하게 보호됩니다. 만남 후 미련 없이 헤어질 수 있습니다. 발견되기 싫은 분들에게 완벽합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>실제 만남 100% 보장</h3>
+                    <p>가짜 사진이나 봇 없음. 실제 인물만 수동으로 선별합니다. 매칭되면 실제로 만날 수 있습니다.</p>
+                </div>
+            </section>
+
+            <!-- 底部 CTA 区域 -->
+            <section class="bottom-cta-section">
+                <h2 class="cta-title">지금 시작하실 준비가 되셨나요? 💗</h2>
+                <p class="cta-text">
+                    오늘 밤 실제 인물을 만날 수 있습니다.
+                    지금 가입하고 즐거운 여행을 시작하세요.
+                </p>
+                <button class="btn-cta btn-large">
+                    <span class="btn-icon">📱</span>
+                    지금 데이트 앱 다운로드
+                </button>
+                <p class="cta-disclaimer">
+                    알림: 동의한 성인 간의 만남만 허용됩니다.
+                    서로의 한계를 존중해주세요.
+                </p>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ff477e"/>
+                        </svg>
+                        <span>LoveMe</span>
+                    </div>
+                    <p>고급 데이트 커뮤니티. 성인 전용, 익명 비밀보장. 오늘 밤 만남을 가지세요.</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="footer-link">이용약관</a>
+                    <a href="#" class="footer-link">개인정보처리방침</a>
+                    <a href="#" class="footer-link">문의하기</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>법적 고지 : 이 플랫폼은 성인 간 만남을 위한 중개 서비스만 제공하며 금전적 거래를 포함하지 않습니다. 모든 만남은 자발적입니다. 현지 법률을 준수하고 서로의 한계를 존중해주세요.</p>
+            </div>
+        </footer>
     </div>
-  </div>
+
+    <!-- 主脚本 -->
+    <script src="script.js"></script>
 </body>
 </html>
