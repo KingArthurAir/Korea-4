@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Me Profile</title>
+  <title>복熙</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    body { font-family: 'Noto Sans KR', system-ui, -apple-system, sans-serif; }
     @keyframes fadeSlideIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .fade-in { animation: fadeSlideIn 0.6s ease-out forwards; }
+    .fade-in { animation: fadeSlideIn 0.6s ease-out forwards; opacity: 0; }
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
@@ -21,32 +21,32 @@
 </head>
 <body>
   <div class="min-h-screen w-full relative flex items-center justify-center p-4">
-    <!-- Full-screen background -->
+    <!-- Full-screen background - matching original pink/coral gradient style -->
     <div 
       class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')"
+      style="background-image: url('https://images.unsplash.com/photo-1516642499337-c07c80fc7264?w=1920&q=80')"
     ></div>
     <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 bg-black/30"></div>
 
     <!-- Glassmorphism card -->
     <div class="relative z-10 w-[90%] max-w-[450px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 flex flex-col items-center">
-      <!-- Avatar -->
+      <!-- Avatar - matching the original -->
       <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white/30 mb-5 shadow-lg">
         <img 
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" 
-          alt="Avatar"
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" 
+          alt="복熙"
           class="w-full h-full object-cover"
         >
       </div>
 
-      <!-- ID Name -->
-      <h1 class="text-2xl font-bold text-white mb-2 tracking-wide">YourName</h1>
+      <!-- ID Name - Korean characters -->
+      <h1 class="text-2xl font-bold text-white mb-2 tracking-wide">복熙</h1>
 
-      <!-- Bio -->
+      <!-- Bio in Korean -->
       <p class="text-white/80 text-center mb-8 text-sm leading-relaxed max-w-[320px]">
-        Welcome to my digital space ✨<br>
-        Digital Creator & Designer
+        도움이 필요하신가요?<br>
+        제가 도와드릴게요 ✨
       </p>
 
       <!-- Links -->
@@ -59,7 +59,7 @@
         
         <a href="https://x.com" target="_blank" class="fade-in delay-2 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-black/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span>X (Twitter)</span>
+          <span>X</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
         </a>
         
@@ -69,14 +69,14 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
         </a>
         
-        <a href="mailto:hello@example.com" class="fade-in delay-4 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-red-500/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
+        <a href="mailto:hello@love-me.xyz" class="fade-in delay-4 block w-full flex items-center justify-center gap-3 py-3.5 px-5 rounded-full bg-white/20 hover:bg-red-500/80 text-white font-medium text-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <span>Email</span>
+          <span>Mail</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
         </a>
       </div>
 
-      <p class="mt-8 text-white/50 text-xs">© 2026 YourName. All rights reserved.</p>
+      <p class="mt-8 text-white/50 text-xs">© 2026 복熙. All rights reserved.</p>
     </div>
   </div>
 </body>
