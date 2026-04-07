@@ -12,245 +12,262 @@
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 40px rgba(0, 185, 0, 0.4), 0 0 60px rgba(0, 210, 0, 0.3); }
-            50% { box-shadow: 0 0 60px rgba(0, 185, 0, 0.6), 0 0 80px rgba(0, 210, 0, 0.4); }
+            50% { transform: scale(1.05); }
         }
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
+            25% { transform: scale(1.12); }
             50% { transform: scale(1); }
-            75% { transform: scale(1.15); }
+            75% { transform: scale(1.18); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
-            background: linear-gradient(180deg, #0f1f0f 0%, #1a2e1a 50%, #0f2616 100%);
+            background: linear-gradient(180deg, #1a0a10 0%, #2d0f1a 40%, #1a0a10 100%);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
         }
         .heart {
             position: fixed;
-            font-size: 26px;
+            font-size: 24px;
             animation: floatUp linear forwards;
             pointer-events: none;
             z-index: 0;
-            filter: drop-shadow(0 0 10px rgba(0, 185, 0, 0.8));
+            filter: drop-shadow(0 0 8px rgba(219, 47, 95, 0.8));
         }
         .container {
             max-width: 480px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding-bottom: 80px;
+            padding: 0 20px 80px;
         }
+
+        /* Header */
         .header {
-            background: transparent;
-            padding: 40px 20px 30px;
             text-align: center;
+            padding: 45px 0 20px;
         }
-        .profile-container {
+        .profile-wrap {
             position: relative;
             display: inline-block;
-            margin-bottom: 15px;
-            animation: pulse 2s infinite;
-        }
-        .verified-badge-wrapper {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            z-index: 2;
-            animation: pulse 2s infinite;
+            margin-bottom: 20px;
+            animation: pulse 2.5s ease-in-out infinite;
         }
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid rgba(0, 185, 0, 0.6);
+            border: 5px solid rgba(219, 47, 95, 0.7);
             object-fit: cover;
-            box-shadow: 0 0 60px rgba(0, 185, 0, 0.5), 0 0 100px rgba(0, 210, 0, 0.3);
-            animation: pulse 2s infinite;
+            box-shadow: 0 0 50px rgba(219, 47, 95, 0.4), 0 0 100px rgba(219, 47, 95, 0.15);
             cursor: pointer;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
         }
         .verified-badge {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            background: linear-gradient(135deg, #00B900 0%, #00D600 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
+            bottom: 8px;
+            right: 8px;
+            background: linear-gradient(135deg, #db2f5f 0%, #ff6b9d 100%);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
             font-size: 10px;
-            font-weight: 600;
-            display: inline-block;
-            white-space: nowrap;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(219, 47, 95, 0.6);
         }
         .site-title {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 900;
-            background: linear-gradient(135deg, #00B900 0%, #00D600 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffb3c8 50%, #db2f5f 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 15px 0 8px;
+            animation: shimmer 3s linear infinite;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
-        .header-badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .site-tagline {
-            display: inline-block;
-            background: rgba(0, 30, 0, 0.8);
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 25px;
+        .site-desc {
             font-size: 13px;
-            font-weight: 800;
-            border: 1px solid rgba(0, 185, 0, 0.4);
-            box-shadow: 0 0 20px rgba(0, 185, 0, 0.2);
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
         .online-count {
-            display: inline-block;
-            background: rgba(0, 30, 0, 0.8);
-            color: #fff;
-            padding: 8px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(219, 47, 95, 0.15);
+            border: 1px solid rgba(219, 47, 95, 0.3);
+            color: #ff6b9d;
+            padding: 7px 18px;
             border-radius: 25px;
             font-size: 13px;
-            font-weight: 800;
-            border: 1px solid rgba(0, 185, 0, 0.4);
-            box-shadow: 0 0 20px rgba(0, 185, 0, 0.2);
+            font-weight: 700;
         }
+        .online-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ff6b9d;
+            animation: heartbeat 1.5s infinite;
+            box-shadow: 0 0 8px #ff6b9d;
+        }
+
+        /* Stats */
         .stats-box {
-            background: transparent;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 25px 0;
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border: none;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(0, 185, 0, 0.1);
+            justify-content: center;
+            gap: 0;
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(219, 47, 95, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
         }
-        .stat-item { text-align: center; padding: 0 12px; flex: 1; }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 18px 12px;
+        }
+        .stat-item + .stat-item {
+            border-left: 1px solid rgba(255, 255, 255, 0.06);
+        }
         .stat-number {
             display: block;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             color: #fff;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .stat-label {
             display: block;
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 4px;
             font-weight: 500;
         }
-        .section {
-            background: rgba(0, 20, 0, 0.6);
+
+        /* LINE Card */
+        .line-card {
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            color: rgba(255, 255, 255, 0.9);
-            padding: 25px 20px;
-            margin: 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 185, 0, 0.25);
+            border-radius: 18px;
+            padding: 24px 20px;
+            margin: 22px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
         }
-        .section-title {
-            font-size: 20px;
+        .line-card::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -40%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(0, 185, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .line-card-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            background: #00B900;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
+        }
+        .line-card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #00B900;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .line-card-id {
+            font-size: 26px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 3px;
+            background: rgba(0, 185, 0, 0.12);
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .line-card-hint {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 10px;
+        }
+
+        /* Features */
+        .features {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(219, 47, 95, 0.12);
+            border-radius: 18px;
+            padding: 22px 20px;
+            margin: 22px 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .features-title {
+            font-size: 16px;
             font-weight: 800;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, rgba(0, 185, 0, 0.8) 0%, rgba(0, 214, 0, 0.9) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .feature-list {
-            list-style: none;
-        }
-        .feature-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        .feature-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 15px;
+            padding: 10px 0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.75);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .feature-list li:last-child { border-bottom: none; }
-        .check-icon {
-            color: #00B900;
-            font-weight: bold;
-            font-size: 18px;
-            text-shadow: 0 0 10px rgba(0, 185, 0, 0.5);
+        .feature-item:last-child { border-bottom: none; }
+        .feature-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #db2f5f, #ff6b9d);
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(219, 47, 95, 0.6);
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            padding: 0;
-        }
-        .gallery-card {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
-        .gallery-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 40px rgba(0, 185, 0, 0.5);
-        }
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-            transition: transform 0.5s ease;
-        }
-        .gallery-card:hover img {
-            transform: scale(1.15);
-        }
-        .gallery-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
-            padding: 18px 12px 12px;
-            color: white;
-        }
-        .gallery-name {
-            font-size: 20px;
-            font-weight: 800;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-        .gallery-meta {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-top: 4px;
-        }
+
+        /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, rgba(0, 185, 0, 0.8) 0%, rgba(0, 214, 0, 0.9) 100%);
-            padding: 35px 25px;
+            background: linear-gradient(160deg, rgba(219, 47, 95, 0.3) 0%, rgba(180, 30, 80, 0.4) 100%);
+            border: 1px solid rgba(219, 47, 95, 0.3);
+            padding: 32px 24px;
             text-align: center;
-            margin: 25px 20px;
-            border-radius: 25px;
-            box-shadow: 0 20px 60px rgba(0, 185, 0, 0.5);
+            margin: 25px 0;
+            border-radius: 22px;
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 1s ease-out;
         }
         .cta-section::before {
             content: '';
@@ -259,115 +276,91 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 185, 0, 0.2) 0%, transparent 70%);
-            animation: pulse 4s infinite;
+            background: radial-gradient(ellipse at center, rgba(219, 47, 95, 0.15) 0%, transparent 65%);
+            animation: pulse 4s ease-in-out infinite;
         }
         .cta-title {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 12px;
+            font-size: 24px;
+            font-weight: 900;
             color: #fff;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 8px;
             position: relative;
         }
         .cta-subtitle {
-            font-size: 15px;
-            margin-bottom: 25px;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 20px;
             position: relative;
         }
         .countdown {
-            background: transparent;
-            border-radius: 15px;
-            padding: 18px;
-            margin: 25px 0;
-            text-align: center;
-            border: none;
+            margin-bottom: 20px;
             position: relative;
         }
         .countdown-number {
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 900;
             color: #fff;
-            text-shadow: 0 2px 20px rgba(0, 185, 0, 0.5);
-            animation: heartbeat 2s infinite;
+            text-shadow: 0 0 30px rgba(219, 47, 95, 0.8);
+            animation: heartbeat 2s ease-in-out infinite;
         }
         .countdown-label {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-top: 8px;
-            font-weight: 500;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 4px;
         }
         .cta-button {
             background: linear-gradient(135deg, #00B900 0%, #00D600 100%);
             color: #fff;
             border: none;
-            padding: 20px 45px;
+            padding: 18px 40px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 800;
             cursor: pointer;
-            animation: glow 2s infinite;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 35px rgba(0, 185, 0, 0.45);
             text-decoration: none;
-            box-shadow: 0 10px 40px rgba(0, 185, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
-            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
         }
         .cta-button:hover {
-            transform: scale(1.08);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 45px rgba(0, 185, 0, 0.6);
         }
-        .line-section {
-            background: rgba(0, 20, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 185, 0, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px;
-            text-align: center;
+        .cta-button:active {
+            transform: scale(0.97);
         }
-        .line-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #00B900;
-            margin-bottom: 12px;
-        }
-        .line-id {
-            font-size: 22px;
-            font-weight: 800;
-            color: #fff;
-            background: rgba(0, 185, 0, 0.15);
-            padding: 12px 24px;
-            border-radius: 10px;
-            display: inline-block;
-            letter-spacing: 2px;
-        }
-        .footer {
-            background: rgba(0, 10, 0, 0.6);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px 20px;
-            text-align: center;
+        .cta-warning {
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.4);
-            margin-top: 30px;
-            margin-left: 20px;
-            margin-right: 20px;
-            border-radius: 25px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 16px;
         }
 
-    
-        .profile-link {
-            display: inline-block;
-            text-decoration: none;
-            cursor: pointer;
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 10px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.25);
+            line-height: 1.8;
+            animation: fadeInUp 1.2s ease-out;
         }
-        .gallery-card {
-            display: block;
-            text-decoration: none;
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px auto;
         }
 
+        @media (max-width: 400px) {
+            .profile-img { width: 150px; height: 150px; }
+            .stat-number { font-size: 20px; }
+            .countdown-number { font-size: 40px; }
+            .cta-button { font-size: 15px; padding: 16px 30px; }
+        }
     </style>
 </head>
 <body>
@@ -375,214 +368,154 @@
 
     <div class="container">
 
+        <!-- Header -->
         <div class="header">
-            <div class="profile-container">
-                <a href="https://line.me/ti/g/your-line-id" class="profile-link">
+            <div class="profile-wrap">
+                <a href="https://line.me/ti/g/your-line-id" target="_blank">
                     <img src="assets/images/main-profile.jpg" class="profile-img" alt="Profile">
                 </a>
-                <div class="verified-badge-wrapper">
-                    <span class="verified-badge">✓ 인증</span>
-                </div>
+                <span class="verified-badge">✓ 인증</span>
             </div>
             <h1 class="site-title">심쿵</h1>
-            <div class="header-badges">
-                <span class="site-tagline">💕 프리미엄 데이트 커뮤니티</span>
-                <span class="online-count">
-                    🔥 현재 <strong id="online-count">0 명</strong> 온라인
-                </span>
-            </div>
-
-            <div class="stats-box">
-                <div class="stat-item">
-                    <span class="stat-number">50,000+</span>
-                    <span class="stat-label">활성 회원</span>
-                </div>
-                <div class="stat-item" style="border-left: 1px solid rgba(255, 255, 255, 0.25);">
-                    <span class="stat-number">89%</span>
-                    <span class="stat-label">매칭 성공률</span>
-                </div>
-                <div class="stat-item" style="border-left: 1px solid rgba(255, 255, 255, 0.25);">
-                    <span class="stat-number">4.9</span>
-                    <span class="stat-label">평점</span>
-                </div>
+            <p class="site-desc">오늘 밤, 특별한 만남이 시작됩니다</p>
+            <div class="online-count">
+                <span class="online-dot"></span>
+                현재 <strong id="online-count">0</strong>명 온라인
             </div>
         </div>
 
-        <div class="line-section">
-            <div class="line-title">LINE으로 쉽게 연락하세요</div>
-            <div class="line-id">@simkung2026</div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">💕 인기 회원</h2>
-            <div class="gallery">
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl1.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">보라</div>
-                        <div class="gallery-meta">24 세 · 서울</div>
-                    </div>
-                </a>
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl2.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">채원</div>
-                        <div class="gallery-meta">20 세 · 서울</div>
-                    </div>
-                </a>
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl3.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">지수</div>
-                        <div class="gallery-meta">19 세 · 부산</div>
-                    </div>
-                </a>
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl4.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">나연</div>
-                        <div class="gallery-meta">25 세 · 제주</div>
-                    </div>
-                </a>
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl5.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">사리</div>
-                        <div class="gallery-meta">23 세 · 서울</div>
-                    </div>
-                </a>
-                <a href="https://line.me/ti/g/your-line-id" class="gallery-card">
-                    <img src="assets/images/girl6.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">미연</div>
-                        <div class="gallery-meta">24 세 · 부산</div>
-                    </div>
-                </a>
+        <!-- Stats -->
+        <div class="stats-box">
+            <div class="stat-item">
+                <span class="stat-number">50,000+</span>
+                <span class="stat-label">활성 회원</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">89%</span>
+                <span class="stat-label">매칭 성공률</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4.9</span>
+                <span class="stat-label">평점</span>
             </div>
         </div>
 
+        <!-- LINE Contact -->
+        <div class="line-card">
+            <div class="line-card-icon">💬</div>
+            <div class="line-card-title">LINE으로 즉시 연결</div>
+            <div class="line-card-id">@simkung2026</div>
+            <div class="line-card-hint">위 ID를 LINE에서 검색하거나 버튼을 클릭하세요</div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="features-title">🔥 왜 심쿵인가요?</div>
+            <div class="feature-item">
+                <span class="feature-dot"></span>
+                심플한 연락으로 빠른 만남
+            </div>
+            <div class="feature-item">
+                <span class="feature-dot"></span>
+                50,000+ 실-active 회원
+            </div>
+            <div class="feature-item">
+                <span class="feature-dot"></span>
+                인증会员만으로 안심하고 참여
+            </div>
+            <div class="feature-item">
+                <span class="feature-dot"></span>
+                24시간 언제든지 연결 가능
+            </div>
+        </div>
+
+        <!-- CTA -->
         <div class="cta-section">
-            <h2 class="cta-title">🎁 지금 시작하세요!</h2>
-            <p class="cta-subtitle">오늘 밤 새로운 만남을 시작하세요</p>
-
+            <div class="cta-title">🎁 지금 참여하세요</div>
+            <div class="cta-subtitle">오늘 밤 새로운 인연을 시작하는 마지막 기회</div>
             <div class="countdown">
                 <div class="countdown-number" id="remaining">23</div>
-                <div class="countdown-label">명 남았어요 (총 50 명)</div>
+                <div class="countdown-label">명 남았어요 (총 50명)</div>
             </div>
-
-            <a href="https://line.me/ti/g/your-line-id" class="cta-button">💬 숫자 7 을 보내고 새로운 인연을 만나보세요 ➡️</a>
-
-            <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
-                ⚠️ 알림: 성인 전용 서비스이며, 모든 이용자는 자발적으로 참여합니다.
-            </p>
+            <a href="https://line.me/ti/g/your-line-id" target="_blank" class="cta-button">
+                💬 숫자 7 보내고 만나기 ➡️
+            </a>
+            <div class="cta-warning">⚠️ 성인 전용 서비스입니다. 자발적 참여를 원칙으로 합니다.</div>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
-            <p>© 2026 심쿵. All rights reserved.</p>
-            <p style="margin-top: 10px;">
-                본 서비스는 성인 (만 19 세 이상) 전용입니다.<br>
-                모든 만남은 자발적으로 이루어집니다.<br>
-                현지 법률을 준수하며, 서로의 경계를 존중해 주세요.
-            </p>
-            <p style="margin-top: 15px; color: rgba(255, 255, 255, 0.4);">
-                🔒 개인정보 안전 · 언제든 탈퇴 가능
-            </p>
+            © 2026 심쿵. All rights reserved.
+            <div class="footer-divider"></div>
+            본 서비스는 성인 (만 19세 이상) 전용입니다.<br>
+            모든 만남은 자발적으로 이루어지며,<br>
+            현지 법률을 준수하고 서로의 경계를 존중합니다.
+            <div class="footer-divider"></div>
+            🔒 개인정보 안전 보장 · 언제든 탈퇴 가능
         </div>
+
     </div>
 
     <script>
-        // 清除缓存参数 (用于测试)
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('reset') === '1') {
-            localStorage.removeItem('onlineData');
-            localStorage.removeItem('remainingData');
-            console.log('缓存已清除，请刷新页面');
+            localStorage.removeItem('onlineData_korea');
+            localStorage.removeItem('remainingData_korea');
         }
 
-        // 飘心动画 - 绿色主题
+        // Floating hearts - rose/pink theme
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
-            heart.textContent = ['💚', '💖', '💗', '💓', '💞', '❤️', '🍀'][Math.floor(Math.random() * 7)];
+            heart.textContent = ['💗', '💖', '💕', '💓', '💝', '❤️', '🔥'][Math.floor(Math.random() * 7)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
+            heart.style.fontSize = (Math.random() * 18 + 16) + 'px';
+            heart.style.animationDuration = (Math.random() * 7 + 10) + 's';
             document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 18000);
+            setTimeout(() => heart.remove(), 17000);
         }
-        setInterval(createHeart, 400);
+        setInterval(createHeart, 500);
 
-        // 在线人数 - 持久化存储 (12xx → 2xxx, 随机±)
-        let onlineData = JSON.parse(localStorage.getItem('onlineData'));
+        // Online count
+        let onlineData = JSON.parse(localStorage.getItem('onlineData_korea'));
         if (!onlineData) {
-            onlineData = {
-                count: Math.floor(Math.random() * 100) + 1200,
-                timestamp: Date.now()
-            };
-            localStorage.setItem('onlineData', JSON.stringify(onlineData));
+            onlineData = { count: Math.floor(Math.random() * 100) + 1200, timestamp: Date.now() };
+            localStorage.setItem('onlineData_korea', JSON.stringify(onlineData));
         }
-
         const onlineCounter = document.getElementById('online-count');
+        onlineCounter.textContent = Math.floor(onlineData.count).toLocaleString('ko-KR');
 
-        function formatNumber(num) {
-            return Math.floor(num).toLocaleString('ko-KR');
-        }
-
-        onlineCounter.textContent = formatNumber(onlineData.count) + '명';
-
-        function updateOnlineCount() {
-            const isIncrease = Math.random() > 0.45;
-            const change = isIncrease
+        function updateOnline() {
+            const change = Math.random() > 0.45
                 ? Math.floor(Math.random() * 51) + 30
                 : -(Math.floor(Math.random() * 41) + 20);
-
-            onlineData.count += change;
-            onlineData.count = Math.min(2000, Math.max(1200, onlineData.count));
-            onlineData.timestamp = Date.now();
-
-            localStorage.setItem('onlineData', JSON.stringify(onlineData));
-            onlineCounter.textContent = formatNumber(onlineData.count) + '명';
+            onlineData.count = Math.min(2000, Math.max(1200, onlineData.count + change));
+            localStorage.setItem('onlineData_korea', JSON.stringify(onlineData));
+            onlineCounter.textContent = Math.floor(onlineData.count).toLocaleString('ko-KR');
         }
+        setTimeout(function schedule() {
+            updateOnline();
+            setTimeout(schedule, Math.random() * 6000 + 3000);
+        }, Math.random() * 3000);
 
-        function scheduleNextUpdate() {
-            const delay = Math.random() * 6000 + 3000;
-            setTimeout(() => {
-                updateOnlineCount();
-                scheduleNextUpdate();
-            }, delay);
-        }
-        scheduleNextUpdate();
-
-        // 剩余名额 - 持久化存储 (49 → 9, 每次 -1)
-        let remainingData = JSON.parse(localStorage.getItem('remainingData'));
+        // Remaining count
+        let remainingData = JSON.parse(localStorage.getItem('remainingData_korea'));
         if (!remainingData) {
-            remainingData = {
-                count: 49,
-                timestamp: Date.now()
-            };
-            localStorage.setItem('remainingData', JSON.stringify(remainingData));
+            remainingData = { count: 49, timestamp: Date.now() };
+            localStorage.setItem('remainingData_korea', JSON.stringify(remainingData));
         }
-
         const counter = document.getElementById('remaining');
         counter.textContent = remainingData.count;
 
         function updateRemaining() {
-            remainingData.count -= 1;
-            remainingData.count = Math.max(9, Math.min(49, remainingData.count));
-            remainingData.timestamp = Date.now();
-
-            localStorage.setItem('remainingData', JSON.stringify(remainingData));
-            counter.textContent = Math.floor(remainingData.count);
+            remainingData.count = Math.max(9, Math.min(49, remainingData.count - 1));
+            localStorage.setItem('remainingData_korea', JSON.stringify(remainingData));
+            counter.textContent = remainingData.count;
         }
-
-        function scheduleNextRemaining() {
-            const delay = Math.random() * 6000 + 3000;
-            setTimeout(() => {
-                updateRemaining();
-                scheduleNextRemaining();
-            }, delay);
-        }
-        scheduleNextRemaining();
+        setTimeout(function schedule() {
+            updateRemaining();
+            setTimeout(schedule, Math.random() * 6000 + 3000);
+        }, Math.random() * 3000);
     </script>
 </body>
 </html>
