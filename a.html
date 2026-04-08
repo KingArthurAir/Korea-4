@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>그린하트 -真剣な恋愛を見つけるためのマッチングサービス</title>
+    <meta name="description" content="심쿵 - 프리미엄 데이트 커뮤니티. 성인을 위한 고급 매칭 서비스를 제공합니다.">
+    <meta name="robots" content="index, follow">
+    <title>심쿵 - 프리미엄 데이트 커뮤니티</title>
     <style>
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
             50% { opacity: 0.8; }
             100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.12); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.18); }
         }
         @keyframes shimmer {
             0% { background-position: -200% center; }
@@ -34,7 +26,7 @@
             background: linear-gradient(180deg, #1a1025 0%, #2d1535 50%, #1a1025 100%);
             min-height: 100vh;
             color: #fff;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
         .heart {
             position: fixed;
@@ -49,56 +41,17 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            padding: 0 20px 80px;
+            padding: 40px 20px 80px;
         }
-
-        /* Header */
-        .header {
+        
+        /* Logo */
+        .logo {
             text-align: center;
-            padding: 45px 0 20px;
+            margin-bottom: 35px;
+            animation: fadeInUp 0.5s ease-out;
         }
-        .profile-wrap {
-            position: relative;
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 400px;
-            width: 100%;
-            animation: pulse 2.5s ease-in-out infinite;
-        }
-        .profile-img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            aspect-ratio: 4 / 3;
-            border-radius: 10px;
-            border: 1px solid rgba(180, 100, 220, 0.7);
-            object-fit: cover;
-            box-shadow: 0 0 50px rgba(180, 100, 220, 0.4), 0 0 100px rgba(180, 100, 220, 0.15);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #2d1535, #1a1025);
-            font-size: 70px;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-        .verified-badge {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
-            color: #fff;
-            padding: 5px 14px;
-            border-radius: 10px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.6);
-        }
-        .site-title {
-            font-size: 34px;
+        .logo h1 {
+            font-size: 38px;
             font-weight: 900;
             background: linear-gradient(135deg, #BB8FCE 0%, #D7BDE2 50%, #9B59B6 100%);
             background-size: 200% auto;
@@ -106,292 +59,138 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: shimmer 3s linear infinite;
-            margin-bottom: 8px;
             letter-spacing: 1px;
         }
-        .site-desc {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.55);
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-        .online-count {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(76, 175, 80, 0.15);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            color: #81c784;
-            padding: 7px 18px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-        .online-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #4caf50;
-            animation: heartbeat 1.5s infinite;
-            box-shadow: 0 0 8px #4caf50;
-        }
-
-        /* Stats */
-        .stats-box {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin: 25px 0;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(180, 100, 220, 0.15);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .stat-item {
-            flex: 1;
-            text-align: center;
-            padding: 18px 12px;
-        }
-        .stat-item + .stat-item {
-            border-left: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .stat-number {
-            display: block;
-            font-size: 24px;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-        .stat-label {
-            display: block;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.45);
-            margin-top: 4px;
-            font-weight: 500;
-        }
-
-        /* LINE Card */
-        .line-card {
-            background: rgba(255, 255, 255, 0.03);
+        
+        /* Hero Section */
+        .hero-section {
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(180, 100, 220, 0.12);
-            border-radius: 10px;
-            padding: 24px 20px;
-            margin: 22px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            border-radius: 16px;
+            padding: 35px 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(180, 100, 220, 0.15);
             animation: fadeInUp 0.6s ease-out;
         }
-        .line-card::before {
-            display: none;
-        }
-        .line-card-icon {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 12px;
-            background: #00B900;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero-title {
             font-size: 22px;
-            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
-        }
-        .line-card-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #00B900;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        .line-card-hint {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.35);
-            margin-top: 10px;
-        }
-        .line-card-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #00B900 0%, #00B900 100%);
-            color: #fff;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 10px;
-            font-size: 17px;
             font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 8px 35px rgba(0, 185, 0, 0.45);
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            letter-spacing: 0.3px;
-            margin-top: 0;
-        }
-        .line-card-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 45px rgba(0, 185, 0, 0.6);
-        }
-        .line-card-btn:active {
-            transform: scale(0.97);
-        }
-
-        /* Features */
-        .features {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(180, 100, 220, 0.12);
-            border-radius: 10px;
-            padding: 22px 20px;
-            margin: 22px 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        .features-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .feature-item:last-child { border-bottom: none; }
-        .feature-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4caf50, #81c784);
-            flex-shrink: 0;
-            box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(180, 100, 220, 0.12);
-            border-radius: 10px;
-            padding: 22px 20px;
-            margin: 22px 0;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        .trust-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .trust-item:last-child { border-bottom: none; }
-        .trust-icon {
-            font-size: 16px;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(180, 100, 220, 0.12);
-            padding: 32px 24px;
             text-align: center;
-            margin: 25px 0;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out;
-        }
-        .cta-section::before {
-            display: none;
-        }
-        .cta-title {
-            font-size: 24px;
-            font-weight: 900;
+            margin-bottom: 15px;
             color: #fff;
-            margin-bottom: 8px;
-            position: relative;
         }
-        .cta-subtitle {
+        .hero-subtitle {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.75);
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             margin-bottom: 20px;
-            position: relative;
+            flex-wrap: wrap;
         }
-        .countdown {
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .countdown-number {
-            font-size: 48px;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 0 30px rgba(180, 100, 220, 0.8);
-            animation: heartbeat 2s ease-in-out infinite;
-        }
-        .countdown-label {
+        .trust-badge {
+            background: rgba(180, 100, 220, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.55);
-            margin-top: 4px;
+            color: #BB8FCE;
+            border: 1px solid rgba(180, 100, 220, 0.25);
+            font-weight: 600;
         }
         .cta-button {
-            background: linear-gradient(135deg, #00B900 0%, #00B900 100%);
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #00B900 0%, #00a000 100%);
             color: #fff;
-            border: none;
-            padding: 18px 40px;
+            text-align: center;
+            padding: 16px 30px;
             border-radius: 10px;
-            font-size: 17px;
-            font-weight: 800;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 35px rgba(0, 185, 0, 0.45);
+            font-size: 16px;
+            font-weight: 700;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            letter-spacing: 0.3px;
+            box-shadow: 0 8px 25px rgba(0, 185, 0, 0.35);
+            transition: all 0.3s ease;
         }
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 45px rgba(0, 185, 0, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 185, 0, 0.5);
         }
-        .cta-button:active {
-            transform: scale(0.97);
+        
+        /* Accordion */
+        .accordion-section {
+            margin-top: 25px;
         }
-        .cta-warning {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.35);
-            margin-top: 16px;
+        .accordion-item {
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(180, 100, 220, 0.12);
+            animation: fadeInUp 0.8s ease-out;
         }
-
+        .accordion-header {
+            width: 100%;
+            padding: 16px 20px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .accordion-header.active {
+            background: rgba(180, 100, 220, 0.1);
+        }
+        .accordion-header .icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .accordion-header.active .icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            background: rgba(255, 255, 255, 0.02);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content-inner {
+            padding: 18px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .info-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .info-text:last-child { margin-bottom: 0; }
+        .info-text strong {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* Footer */
         .footer {
+            margin-top: 40px;
             text-align: center;
-            padding: 30px 10px;
             font-size: 11px;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.3);
             line-height: 1.8;
-            animation: fadeInUp 1.2s ease-out;
+            animation: fadeInUp 1s ease-out;
         }
         .footer-divider {
             width: 40px;
@@ -399,181 +198,276 @@
             background: rgba(255, 255, 255, 0.1);
             margin: 15px auto;
         }
-
-        @media (max-width: 400px) {
-            .stat-number { font-size: 20px; }
-            .countdown-number { font-size: 40px; }
-            .cta-button { font-size: 15px; padding: 16px 30px; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .footer-links span {
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            font-size: 11px;
+            transition: color 0.3s;
+        }
+        .footer-links span:hover {
+            color: #BB8FCE;
+        }
+        .age-notice {
+            background: rgba(180, 100, 220, 0.1);
+            border: 1px solid rgba(180, 100, 220, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .age-notice p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
         }
     </style>
 </head>
 <body>
+    <!-- Floating Hearts -->
     <div id="hearts-container"></div>
-
+    
     <div class="container">
-
-        <!-- Header -->
-        <div class="header">
-            <div class="profile-wrap">
-                <div class="profile-img">💑</div>
-                <span class="verified-badge">✓ 본인 인증</span>
-            </div>
-            <h1 class="site-title">그린하트</h1>
-            <p class="site-desc">진정한 사랑을 찾기 위한 결혼 소개 서비스</p>
-            <div class="online-count">
-                <span class="online-dot"></span>
-                현재 <strong id="online-count">0</strong>명 활동 중
-            </div>
+        <!-- Logo -->
+        <div class="logo">
+            <h1>심쿵</h1>
         </div>
-
-        <!-- Stats -->
-        <div class="stats-box">
-            <div class="stat-item">
-                <span class="stat-number">120만+</span>
-                <span class="stat-label">본인 인증 회원</span>
+        
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h2 class="hero-title">프리미엄 데이트 커뮤니티</h2>
+            <p class="hero-subtitle">
+                심쿵은 성인을 위한 고급 데이트 매칭 서비스입니다.<br>
+                안전하고 신뢰할 수 있는 환경에서 새로운 인연을 만나보세요.
+            </p>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">🔒 SSL 보안</div>
+                <div class="trust-badge">✓ 신원인증</div>
+                <div class="trust-badge">🛡️ 개인정보보호</div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">98%</span>
-                <span class="stat-label">만족도</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">14년</span>
-                <span class="stat-label">운영 경력</span>
-            </div>
-        </div>
-
-        <!-- LINE Contact -->
-        <div class="line-card">
-            <div class="line-card-icon">💬</div>
-            <div class="line-card-title">무료 상담 및 가입 신청</div>
-            <a href="https://line.me/ti/g/your-line-id" target="_blank" class="line-card-btn">
-                숫자 1 보내고 시작하기 ➡️
-            </a>
-        </div>
-
-        <!-- Features -->
-        <div class="features">
-            <div class="features-title">💚 그린하트의 특별한 점</div>
-            <div class="feature-item">
-                <span class="feature-dot"></span>
-                본인 인증 완료 회원만是利用 가능
-            </div>
-            <div class="feature-item">
-                <span class="feature-dot"></span>
-                성격 유형 분석 기반 스마트 매칭
-            </div>
-            <div class="feature-item">
-                <span class="feature-dot"></span>
-                전문 상담원이 도와주는 1:1 매칭 서비스
-            </div>
-            <div class="feature-item">
-                <span class="feature-dot"></span>
-                실존 인물 확인으로 안심하고 이용
-            </div>
-        </div>
-
-        <!-- Trust Section -->
-        <div class="trust-section">
-            <div class="trust-title">🔒 안심하고 이용하시는 이유</div>
-            <div class="trust-item">
-                <span class="trust-icon">✅</span>
-               全员 본인 인증 의무화
-            </div>
-            <div class="trust-item">
-                <span class="trust-icon">🔐</span>
-                개인정보 암호화 및 보호
-            </div>
-            <div class="trust-item">
-                <span class="trust-icon">🛡️</span>
-                24시간 모니터링 및 고객 지원
-            </div>
-            <div class="trust-item">
-                <span class="trust-icon">📋</span>
-                엄격한 커뮤니티 가이드라인 운영
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="cta-section">
-            <div class="cta-title">🌿 지금 시작하세요</div>
-            <div class="cta-subtitle">진정한 만남의 시작, 그린하트에서</div>
-            <div class="countdown">
-                <div class="countdown-number" id="remaining">23</div>
-                <div class="countdown-label">명 오늘 가입 신청</div>
-            </div>
+            
             <a href="https://line.me/ti/g/your-line-id" target="_blank" class="cta-button">
-                숫자 1 보내고 시작하기 ➡️
+                💬 카카오톡 채널 추가하기
             </a>
-            <div class="cta-warning">💚 본인 인증 완료 후 무료 상담 이용 가능</div>
         </div>
-
+        
+        <!-- Accordion Section -->
+        <div class="accordion-section">
+            <!-- 회원 가입 -->
+            <div class="accordion-item" id="join">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>회원 가입</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>가입 방법:</strong> 카카오톡 채널 @심쿵 추가 후 간단한 등록
+                        </p>
+                        <p class="info-text">
+                            <strong>문의:</strong> 1588-3727 (평일 10:00-18:00)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 서비스 안내 -->
+            <div class="accordion-item" id="info">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>서비스 안내</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>이용 자격:</strong> 만 19세 이상 성인 (신원 인증 필요)
+                        </p>
+                        <p class="info-text">
+                            <strong>보안:</strong> SSL 암호화 통신, 개인정보 제3자 제공 안 함
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 이용약관 -->
+            <div class="accordion-item" id="terms">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>이용약관 (요약)</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>제1조 (목적)</strong> 온라인 데이트 매칭 서비스 이용 관련 권리, 의무 및 책임사항 규정
+                        </p>
+                        <p class="info-text">
+                            <strong>제2조 (이용자격)</strong> 만 19세 이상 성인, 가입 시 실명 인증 필요
+                        </p>
+                        <p class="info-text">
+                            <strong>제3조 (개인정보보호)</strong> 이용자 개인정보 철저 보호, 관련 법령 준수
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 개인정보처리방침 -->
+            <div class="accordion-item" id="privacy">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>개인정보처리방침 (요약)</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>수집항목:</strong> 이름, 생년월일, 성별, 연락처, 프로필 사진
+                        </p>
+                        <p class="info-text">
+                            <strong>이용목적:</strong> 회원 관리, 서비스 제공, 맞춤형 매칭
+                        </p>
+                        <p class="info-text">
+                            <strong>보유기간:</strong> 회원 탈퇴 시 즉시 파기 (법령 예외 제외)
+                        </p>
+                        <p class="info-text">
+                            <strong>제3자 제공:</strong> 원칙적 금지 (법령 예외)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 고객센터 -->
+            <div class="accordion-item" id="contact">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>고객센터</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>전화:</strong> 1588-3727
+                        </p>
+                        <p class="info-text">
+                            <strong>시간:</strong> 평일 10:00-18:00 (점심 12:00-13:00)
+                        </p>
+                        <p class="info-text">
+                            <strong>이메일:</strong> support@simkung.kr
+                        </p>
+                        <p class="info-text">
+                            <strong>카톡:</strong> @심쿵
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 회사소개 -->
+            <div class="accordion-item" id="company">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>회사소개</span>
+                    <span class="icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p class="info-text">
+                            <strong>상호:</strong> (주) 심쿵 | <strong>대표:</strong> 김민수
+                        </p>
+                        <p class="info-text">
+                            <strong>사업자번호:</strong> 220-88-12345
+                        </p>
+                        <p class="info-text">
+                            <strong>주소:</strong> 서울 강남구 테헤란로 152, 15층
+                        </p>
+                        <p class="info-text">
+                            <strong>통신판매업:</strong> 제 2026-서울강남-01234호
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Footer -->
         <div class="footer">
-            © 2026 그린하트. All rights reserved.
+            <div class="footer-links">
+                <span onclick="scrollToSection('terms')">이용약관</span>
+                <span onclick="scrollToSection('privacy')">개인정보처리방침</span>
+                <span onclick="scrollToSection('contact')">고객센터</span>
+                <span onclick="scrollToSection('company')">회사소개</span>
+            </div>
             <div class="footer-divider"></div>
-            그린하트는已婚者 및 미성년자를 대상으로 하지 않습니다.<br>
-            모든会员는实名認証을 완료해야 하며,<br>
-            다른会员를 존중하고 예의를 지키는 것을 원칙으로 합니다.
-            <div class="footer-divider"></div>
-            🔒 개인정보 보호정책 · 利用약관 · 青少年保護政策
+            <p>© 2026 (주) 심쿵. All rights reserved.</p>
+            
+            <div class="age-notice">
+                <p>본 서비스는 성인 (만 19세 이상) 전용 서비스입니다.<br>
+                모든 이용자는 자발적으로 참여하며, 현지 법률을 준수해야 합니다.</p>
+            </div>
         </div>
-
     </div>
-
+    
     <script>
-        // Floating hearts - green theme to match brand
+        // Floating hearts
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
-            heart.textContent = ['💚', '🟢', '🌿', '💚', '🟢', '🌿'][Math.floor(Math.random() * 6)];
+            heart.textContent = ['💗', '💖', '💕', '💓', '💝', '❤️', '🔥'][Math.floor(Math.random() * 7)];
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.fontSize = (Math.random() * 16 + 14) + 'px';
             heart.style.animationDuration = (Math.random() * 7 + 10) + 's';
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 17000);
         }
-        setInterval(createHeart, 700);
-
-        // Online count
-        let onlineData = JSON.parse(localStorage.getItem('onlineData_greenheart'));
-        if (!onlineData) {
-            onlineData = { count: Math.floor(Math.random() * 100) + 3200, timestamp: Date.now() };
-            localStorage.setItem('onlineData_greenheart', JSON.stringify(onlineData));
+        setInterval(createHeart, 600);
+        
+        // Scroll to section
+        function scrollToSection(id) {
+            const item = document.getElementById(id);
+            if (item) {
+                const header = item.querySelector('.accordion-header');
+                const content = header.nextElementSibling;
+                
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.style.maxHeight = '0';
+                });
+                
+                header.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
-        const onlineCounter = document.getElementById('online-count');
-        onlineCounter.textContent = Math.floor(onlineData.count).toLocaleString('ko-KR');
-
-        function updateOnline() {
-            const change = Math.random() > 0.45
-                ? Math.floor(Math.random() * 51) + 30
-                : -(Math.floor(Math.random() * 41) + 20);
-            onlineData.count = Math.min(4000, Math.max(3200, onlineData.count + change));
-            localStorage.setItem('onlineData_greenheart', JSON.stringify(onlineData));
-            onlineCounter.textContent = Math.floor(onlineData.count).toLocaleString('ko-KR');
+        
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            document.querySelectorAll('.accordion-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.style.maxHeight = '0';
+            });
+            
+            if (!isActive) {
+                header.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
         }
-        setTimeout(function schedule() {
-            updateOnline();
-            setTimeout(schedule, Math.random() * 6000 + 3000);
-        }, Math.random() * 3000);
-
-        // Remaining count
-        let remainingData = JSON.parse(localStorage.getItem('remainingData_greenheart'));
-        if (!remainingData) {
-            remainingData = { count: Math.floor(Math.random() * 15) + 15, timestamp: Date.now() };
-            localStorage.setItem('remainingData_greenheart', JSON.stringify(remainingData));
+        
+        // Age verification
+        const isAdult = localStorage.getItem('ageVerified_simkung');
+        if (!isAdult) {
+            const confirmed = confirm('본 서비스는 만 19세 이상의 성인만 이용 가능합니다.\n\n만 19세 이상입니까?');
+            if (confirmed) {
+                localStorage.setItem('ageVerified_simkung', 'true');
+                scrollToSection('join');
+            } else {
+                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:18px;color:#fff;text-align:center;padding:20px;">죄송합니다. 만 19세 이상만 이용 가능합니다.</div>';
+            }
         }
-        const counter = document.getElementById('remaining');
-        counter.textContent = remainingData.count;
-
-        function updateRemaining() {
-            remainingData.count = Math.max(10, Math.min(35, remainingData.count + (Math.random() > 0.5 ? 1 : -1)));
-            localStorage.setItem('remainingData_greenheart', JSON.stringify(remainingData));
-            counter.textContent = remainingData.count;
-        }
-        setTimeout(function schedule() {
-            updateRemaining();
-            setTimeout(schedule, Math.random() * 6000 + 3000);
-        }, Math.random() * 3000);
     </script>
 </body>
 </html>
