@@ -298,21 +298,6 @@
         
         <!-- Accordion Section -->
         <div class="accordion-section">
-            <!-- 회원 가입 -->
-            <div class="accordion-item" id="join">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>회원 가입</span>
-                    <span class="icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-content-inner">
-                        <p class="info-text">
-                            <strong>가입 방법:</strong> LINE 채널 @simkung 추가 후 간단한 프로필 등록
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
             <!-- 이용약관 -->
             <div class="accordion-item" id="terms">
                 <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -325,7 +310,7 @@
                             <strong>제1조 (목적)</strong> 데이트 매칭 서비스의 이용 방법, 회원 권리·의무 및 책임 등을 규정
                         </p>
                         <p class="info-text">
-                            <strong>제2조 (이용자격)</strong> 만 19세 이상 성인, 가입 시 본인 인증 필수
+                            <strong>제2조 (이용자격)</strong> 만 19세 이상 성인, 가입 시 본인 인증 필수. LINE 채널 @simkung 추가 후 프로필 등록
                         </p>
                         <p class="info-text">
                             <strong>제3조 (서비스)</strong> 이상형 검색, 1:1 매칭, 단체 미팅, 데이트 코디 서비스, 프로필 기반 매칭, 오프라인 미팅 알선
@@ -497,7 +482,7 @@
             const confirmed = confirm('본 서비스는 만 19세 이상의 성인만 이용 가능합니다.\n\n만 19세 이상이라면 확인을 눌러주세요.');
             if (confirmed) {
                 localStorage.setItem('ageVerified_simkung', 'true');
-                scrollToSection('join');
+                scrollToSection('terms');
             } else {
                 document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:18px;color:#fff;text-align:center;padding:20px;">죄송합니다. 만 19세 이상만 이용 가능합니다.</div>';
             }
