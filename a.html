@@ -335,7 +335,7 @@
                             <strong>가입 방법:</strong> LINE 채널 @simkung 또는 @greendate 추가 후 간단한 프로필 등록
                         </p>
                         <p class="info-text">
-                            <strong>연락처:</strong> 080-1234-5678 (무료)/ 02-1234-5678
+                            <strong>연락처:</strong> 080-4747-2800 (무료)/ 02-3456-7890
                         </p>
                         <p class="info-text">
                             <strong>이메일:</strong> help@simkung.kr
@@ -428,7 +428,7 @@
                 <div class="accordion-content">
                     <div class="accordion-content-inner">
                         <p class="info-text">
-                            <strong>전화:</strong> 080-1234-5678 (무료)/ 02-1234-5678
+                            <strong>전화:</strong> 080-4747-2800 (무료)/ 02-3456-7890
                         </p>
                         <p class="info-text">
                             <strong>시간:</strong> 평일 09:00-20:00 (주말 10:00-18:00)
@@ -479,10 +479,7 @@
             </div>
             <div class="footer-divider"></div>
             <p>© 2026 (주) 심쿵. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 11px;">
-                본 사이트는 성인 (만 19세 이상) 전용 서비스입니다.<br>
-                모든 이용자는 자발적으로 참여하며, 현지 법률을 준수해야 합니다.
-            </p>
+
         </div>
     </div>
     
@@ -548,7 +545,7 @@
         // Age verification
         const isAdult = localStorage.getItem('ageVerified_simkung');
         if (!isAdult) {
-            const confirmed = confirm('본 서비스는 만 19세 이상의 성인만 이용 가능합니다.\n\n만 19세 이상입니까?');
+            const confirmed = confirm('본 서비스는 만 19세 이상의 성인만 이용 가능합니다.\n\n만 19세 이상이라면 확인을 눌러주세요.');
             if (confirmed) {
                 localStorage.setItem('ageVerified_simkung', 'true');
                 scrollToSection('join');
