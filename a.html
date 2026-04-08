@@ -66,22 +66,22 @@
         .hero-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 35px 25px;
+            border-radius: 20px;
+            padding: 40px 30px;
             margin-bottom: 25px;
             border: 1px solid rgba(180, 100, 220, 0.15);
             animation: fadeInUp 0.6s ease-out;
         }
         .hero-title {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #fff;
         }
         .hero-subtitle {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
             text-align: center;
             margin-bottom: 25px;
             line-height: 1.8;
@@ -90,35 +90,81 @@
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
         .trust-badge {
-            background: rgba(180, 100, 220, 0.15);
+            background: rgba(255, 255, 255, 0.05);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 12px;
-            color: #BB8FCE;
-            border: 1px solid rgba(180, 100, 220, 0.25);
-            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
+        /* Features List */
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        .features li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .features li:last-child {
+            border-bottom: none;
+        }
+        .check-icon {
+            color: #4CAF50;
+            font-size: 18px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* CTA Buttons */
         .cta-button {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #00B900 0%, #00a000 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fb1 100%);
             color: #fff;
             text-align: center;
             padding: 16px 30px;
-            border-radius: 10px;
+            border-radius: 50px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0, 185, 0, 0.35);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.35);
             transition: all 0.3s ease;
+            margin-bottom: 12px;
         }
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 185, 0, 0.5);
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.45);
+        }
+        .secondary-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #9B59B6 0%, #BB8FCE 100%);
+            color: #fff;
+            text-align: center;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35);
+            transition: all 0.3s ease;
+        }
+        .secondary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.45);
         }
         
         /* Accordion */
@@ -126,20 +172,20 @@
             margin-top: 25px;
         }
         .accordion-item {
-            border-radius: 12px;
-            margin-bottom: 10px;
+            border-radius: 15px;
+            margin-bottom: 12px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(180, 100, 220, 0.12);
             animation: fadeInUp 0.8s ease-out;
         }
         .accordion-header {
             width: 100%;
-            padding: 16px 20px;
+            padding: 18px 20px;
             background: transparent;
             border: none;
             color: #fff;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             text-align: left;
             cursor: pointer;
@@ -169,18 +215,43 @@
             transition: max-height 0.3s ease;
         }
         .accordion-content-inner {
-            padding: 18px 20px;
+            padding: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         .info-text {
             font-size: 13px;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .info-text:last-child { margin-bottom: 0; }
         .info-text strong {
             color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Age Notice */
+        .age-notice {
+            background: rgba(255, 143, 177, 0.15);
+            border: 1px solid rgba(255, 143, 177, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        .age-notice p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .age-badge {
+            display: inline-block;
+            background: #ff5757;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
         }
         
         /* Footer */
@@ -214,19 +285,6 @@
         .footer-links span:hover {
             color: #BB8FCE;
         }
-        .age-notice {
-            background: rgba(180, 100, 220, 0.1);
-            border: 1px solid rgba(180, 100, 220, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        .age-notice p {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.7;
-        }
     </style>
 </head>
 <body>
@@ -253,9 +311,20 @@
                 <div class="trust-badge">🛡️ 개인정보보호</div>
             </div>
             
+            <!-- Features List -->
+            <ul class="features">
+                <li><span class="check-icon">✓</span> 24시간 언제든지 연결 가능</li>
+                <li><span class="check-icon">✓</span> 50,000+ 실‑활성 회원</li>
+                <li><span class="check-icon">✓</span> 인증 회원만으로 안심하고 참여</li>
+                <li><span class="check-icon">✓</span> 심플한 연락으로 빠른 만남</li>
+            </ul>
+            
             <a href="https://line.me/ti/g/your-line-id" target="_blank" class="cta-button">
                 💬 카카오톡 채널 추가하기
             </a>
+            <span onclick="expandAll()" class="secondary-button" style="cursor: pointer;">
+                전체 보기
+            </span>
         </div>
         
         <!-- Accordion Section -->
@@ -400,11 +469,10 @@
             </div>
             <div class="footer-divider"></div>
             <p>© 2026 (주) 심쿵. All rights reserved.</p>
-            
-            <div class="age-notice">
-                <p>본 서비스는 성인 (만 19세 이상) 전용 서비스입니다.<br>
-                모든 이용자는 자발적으로 참여하며, 현지 법률을 준수해야 합니다.</p>
-            </div>
+            <p style="margin-top: 10px; font-size: 11px;">
+                본 사이트는 성인 (만 19세 이상) 전용 서비스입니다.<br>
+                모든 이용자는 자발적으로 참여하며, 현지 법률을 준수해야 합니다.
+            </p>
         </div>
     </div>
     
@@ -455,6 +523,16 @@
                 header.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
+        }
+        
+        // Expand all accordions
+        function expandAll() {
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = header.nextElementSibling;
+                header.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
         }
         
         // Age verification
